@@ -247,7 +247,12 @@ object DList {
 
   /** Creates a distributed list with given elements. */
   def apply[A : Manifest : WireFormat](elems: A*): DList[A] = {
+    
     val vec = Vector(elems: _*)
+    
+    println("~~~~~~Vector size: " + vec.length)
+    vec.foreach(println)
+    
     FunctionInput.fromFunction(vec.size)(ix => vec(ix))
   }
 

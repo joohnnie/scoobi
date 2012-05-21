@@ -53,7 +53,7 @@ object WordCount extends ScoobiApp {
   val combined: DList[(String, Int)] = grouped.combine((_+_))
 
   // We can evaluate this, and write it to a text file
-  DList.persist(toTextFile(combined, outputPath + "/word-results"));
+  persist(toTextFile(combined, outputPath + "/word-results"));
 
   /* Write 'count' random words to the file 'filename', with a high amount of collisions */
   private def generateWords(filename: String, count: Int) {
